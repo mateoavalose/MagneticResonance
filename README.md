@@ -1,5 +1,12 @@
 # Magnetic Resonance Animation
 
+## Getting Started
+To run the animation, ensure you have Python installed. After ensuring Python is correctly installed, run the following command:
+```bash
+pip install numpy matplotlib
+```
+After installing the dependencies, you can execute the code provided in this repository to visualize the simulation of magnetic resonance principles.
+
 ## Overview
 This project simulates the fundamental principles of Nuclear Magnetic Resonance (NMR) and Magnetic Resonance Imaging (MRI). The simulation visualizes the behavior of spins in a magnetic field, demonstrating the interaction of atomic nuclei with external magnetic fields and radiofrequency pulses.
 
@@ -32,9 +39,3 @@ The impact of MRI technology in the medical field is undeniable. It has transfor
 In terms of relevance, MRI has significantly contributed to fields like neuroscience and brain research, where its ability to visualize real-time brain activity through functional MRI (fMRI) has opened new frontiers in studying cognition, behavior, and neurological disorders. Continuous improvements in image resolution and speed are enhancing MRI's utility in image-guided surgery and surgical planning, optimizing clinical outcomes.
 
 In engineering, MRI technology has proven valuable in developing new non-invasive monitoring techniques in materials science and hydrocarbon exploration.
-
-## Getting Started
-To run the animation, ensure you have Python installed with the necessary libraries. You can execute the code provided in this repository to visualize the simulation of magnetic resonance principles.
-```bash
-pip install numpy matplotlib
-```
