@@ -107,12 +107,13 @@ def reset_animation():
     start_time = time.time()  # Reset start time
     paused_time = None
     animation_running = False  # Stop animation
-    ani.event_source.stop()  # Ensure the animation stops
+    if ani.event_source:
+        ani.event_source.stop()  # Ensure the animation stops
     update(current_frame)
 
 # Start animation
 def start_animation(event):
-    global animation_running, start_time, paused_time
+    global animation_running, start_time, paused_time, ani
 
     if not animation_running:
         animation_running = True
@@ -120,7 +121,8 @@ def start_animation(event):
             start_time += time.time() - paused_time  # Adjust start time for paused state
         else:
             start_time = time.time()  # Initialize start time
-        ani.event_source.start()  # Resume animation
+        if ani.event_source:
+            ani.event_source.start()  # Resume animation
 
 # Pause animation
 def stop_animation(event):
@@ -128,7 +130,8 @@ def stop_animation(event):
     if animation_running:
         animation_running = False
         paused_time = time.time()  # Store pause time
-        ani.event_source.stop()  # Stop the animation
+        if ani.event_source:
+            ani.event_source.stop()  # Stop the animation
 
 # Create buttons for controlling the animation
 start_ax = plt.axes([0.72, 0.02, 0.08, 0.04])  # Smaller button for 'Start'
@@ -140,9 +143,6 @@ stop_button.on_clicked(stop_animation)
 
 # Create animation using FuncAnimation
 ani = FuncAnimation(fig, advance_frame, frames=time_steps, init_func=init, blit=False, interval=30, repeat=False)
-
-# Stop animation at the beginning
-animation_running = False
 
 # Display the animation
 plt.show()
